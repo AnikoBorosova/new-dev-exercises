@@ -1,0 +1,23 @@
+don't use string for parameter - better use something else, not an existing js keyword
+
+better use the default branch in switch statement for errors handling, to throw error in case we get something else
+
+instead of array.shift() better to increment the index - not good practise to modify the array as we iterate through it, 
+it could lead to unexpected errors
+
+Instead of switch statement we can use an object for mapping the roman numbers to integers and not use an array, 
+but go through the object keys
+
+From others:
+use "throw new Error()" in default case inside switch statement
+use try catch when calling the keyToValue function, and return -1 when catching an error
+
+------ TO TRY TO CODE IT ------
+efficient:
+object for mapping
+current, next variables
+
+if (current < next)
+to not modify the array or increment
+
+-------
