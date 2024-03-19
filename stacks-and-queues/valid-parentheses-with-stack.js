@@ -4,6 +4,7 @@
  */
 var isValid = function(s) {
     let myStack = [];
+    console.log(myStack.peek())
     const splittedArr = s.split('');
 
     // if any bracket is missing it's pair and the number of items is an odd number

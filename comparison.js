@@ -4,9 +4,9 @@ const a = {
         return a.i++;
     }
 }
-// console.log('AAAA ', a == 1)
-// console.log('BBBB ', a == 2)
-// console.log('CCCC ', a == 3)
+console.log('111111 ', a == 1)
+console.log('222222 ', a == 2)
+console.log('333333 ', a == 3)
 
 if (a == 1 && a == 2 && a == 3) {
     console.log('Take that, JS');

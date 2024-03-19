@@ -33,7 +33,6 @@ var bagOfTokensScore = function(tokens, power) {
     return score;
 };
 
-// TODO: how to solve the max score problem
 
 //console.log(bagOfTokensScore([100], 50));
 //console.log(bagOfTokensScore([200, 100], 150));
