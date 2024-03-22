@@ -28,13 +28,8 @@ var countStudents = function(students, sandwiches) {
                 console.log('length ', kids.length, sandwiches.length)
             }
         }
-        
-    }
-    if (sandwiches.length === 0 && kids.length !== 0) {
-        return kids.length;
     }
 };
 
-
 console.log(countStudents([1,1,0,0], [0,1,0,1]));
-//console.log(countStudents([1,1,1,0,0,1], [1,0,0,0,1,1]));
+console.log(countStudents([1,1,1,0,0,1], [1,0,0,0,1,1]));

@@ -14,28 +14,33 @@ gaining tokens[i] power and losing 1 score.
 */
 var bagOfTokensScore = function(tokens, power) {
     let score = 0;
+    let biggestTokenPower = 0;
+    let notPlayableTokensCount = 0; 
 
-    for (let i = 0; i < tokens.length; i++) {
-        if (power >= tokens[i]) {
-            power -= tokens[i];
+    while (tokens.length > 0) {
+        let currentTokenPower = tokens.shift();
+        if (power >= currentTokenPower) {
+            // play the token face-up
             score += 1;
-            console.log('POWER ', power);
-            console.log('SCORE ', score);
+            notPlayableTokensCount = 0;
+        } else if (score >= 1 && notPlayableTokensCount < tokens.length ) {
+            // only look at the token power to find the bigegst remaining token
+            if (currentTokenPower > biggestTokenPower) {
+                tokens.push(biggestTokenPower);
+                biggestTokenPower = currentTokenPower;
+            } else {
+                tokens.push(currentTokenPower);
+            }
+            notPlayableTokensCount++;
         } else if (score >= 1) {
-            power += tokens[i];
+            // looked at all tokens, playing the biggest one face-down
             score -= 1;
-            console.log('POWER ', power);
-            console.log('SCORE ', score);
-        } else {
-            score = 0;
+            power += biggestTokenPower;
+            notPlayableTokensCount = 0;
         }
     }
-    console.log('POWER ', power);
-    console.log('SCORE ', score);
     return score;
 };
-
-
 //console.log(bagOfTokensScore([100], 50));
 //console.log(bagOfTokensScore([200, 100], 150));
 console.log(bagOfTokensScore([100,200,300,400], 200));

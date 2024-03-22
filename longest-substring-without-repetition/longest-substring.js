@@ -6,25 +6,17 @@
  */
 
 var lengthOfLongestSubstring = function(s) {
-    let myArr = [];
-    let maxLength = 1;
+    // nested for loop needed i + j
+    let stringArr = s.split('');
+    let myStack = [];
 
-    for (let i = 0; i < s.length; i++) {
-        myArr.push(s[i]);
-        let currentChar = s[i + 1];
-
-        for (let j = 0; j < s.length; j++) {
-            if (currentChar === myArr[j]) {
-                // return myArr.length;
-                // rewrite array from latest character
-                // myArr[j] = currentChar;
-                // maxLength = 1;
-            } else {
-                maxLength++;
-            }
-        }
+    for (let index = 0; index < stringArr.length; index++) {
+        let currentChar = stringArr.shift();
+        if (!myStack.includes(currentChar)) {
+            myStack.push(currentChar);
+        }    
     }
-    return maxLength;
+    return myStack.length;
 };
 
 console.log(lengthOfLongestSubstring("abcabcbb"));

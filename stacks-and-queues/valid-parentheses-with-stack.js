@@ -6,7 +6,6 @@
  */
 var isValid = function(s) {
     let myStack = [];
-    console.log(myStack.peek())
     const splittedArr = s.split('');
 
     // if any bracket is missing it's pair and the number of items is an odd number
@@ -16,38 +15,27 @@ var isValid = function(s) {
 
     // in case of even number of items
     for (let i = 0; i < splittedArr.length; i++) {
-        let top = myStack[myStack.length - 1];
-
         // in case of openers, add item to stack
         if (splittedArr[i] === '(' || splittedArr[i] === '[' || splittedArr[i] === '{') {
             myStack.push(splittedArr[i]);
-        }
+        } else {
+            let top = myStack.pop();
 
-        // in case of closers, check if top is a matching pair
-        if (splittedArr[i] === ')') { 
-            if (top === '(') {
-                return true;
-            } else {
+            // in case of closers, check if top is a matching pair
+            if (splittedArr[i] === ')' && top !== '(') { 
                 return false;
             }
-        }
-
-        if (splittedArr[i] === ']') { 
-            if (top === '[') {
-                return true;
-            } else {
+    
+            if (splittedArr[i] === ']' && top !== '[' ) { 
                 return false;
             }
-        }
-
-        if (splittedArr[i] === '}') { 
-            if (top === '{') {
-                return true;
-            } else {
+    
+            if (splittedArr[i] === '}' && top !== '{') { 
                 return false;
             }
         }
     }
+    return true;
 };
 
 console.log(isValid('()'));
@@ -57,3 +45,4 @@ console.log(isValid('([}]'));
 console.log(isValid('([{([{}])}])'));   // valid
 console.log(isValid('([{([{[]])}])'));  // odd number of items
 console.log(isValid('([{([{]])}])'));   // even number of items, but missing pair
+console.log(isValid('([{}[)'));
