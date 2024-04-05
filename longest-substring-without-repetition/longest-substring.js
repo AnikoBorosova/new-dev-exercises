@@ -6,7 +6,6 @@
  */
 
 var lengthOfLongestSubstring = function(s) {
-    // nested for loop needed i + j
     let stringArr = s.split('');
     let myStack = [];
 

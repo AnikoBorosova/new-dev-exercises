@@ -41,6 +41,29 @@ var bagOfTokensScore = function(tokens, power) {
     }
     return score;
 };
+
+// Remy's solution - simpler + sort method
+const bagOfTokensScore = (tokens, power) => {
+    const sortedTokens = tokens.sort((a,b) => a-b);
+    let score = 0;
+
+    while (sortedTokens.length > 0) {
+        if (power >= sortedTokens[0]) {
+            // If we have enough power, we play the smallest token face-up
+            power -= sortedTokens.shift();
+            score++;
+        } else if (score > 0 && sortedTokens.length > 1){
+            // Otherwise and if it's not the last token in the bag, we play the biggest token face-down
+            power += sortedTokens.pop();
+            score--;
+        } else {
+            // If we can't play the last token face-up, we just don't play it to keep the highest score
+            break;
+        }
+    }
+    return score;
+};
+
 //console.log(bagOfTokensScore([100], 50));
 //console.log(bagOfTokensScore([200, 100], 150));
 console.log(bagOfTokensScore([100,200,300,400], 200));

@@ -33,8 +33,9 @@ var calPoints = function(operations) {
     return sum;
 };
 
-// using it with a switch statement
-// using objects, with functions as values paired with the operations
+// optional to use it with a switch statement
+// optional using objects, with functions as values paired with the operations
+// TODO add object solution
 
 console.log(calPoints(["5","2","C","D","+"]));
 console.log(calPoints(["5","-2","4","C","D","9","+","+"]));

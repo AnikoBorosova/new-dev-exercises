@@ -7,6 +7,26 @@
 // If the student at the front of the queue prefers the sandwich on the top of the stack, 
 //they will take it and leave the queue.
 //Otherwise, they will leave it and go to the queue's end.
+
+// Based on Remy's solution
+var countStudents = function(students, sandwiches) {
+    let skippingStudents = 0;
+
+    while (students.length > 0 && skippingStudents < students.length) {
+        const firstStudent = students.shift();
+
+        if (firstStudent === sandwiches[0]) {
+            sandwiches.shift();
+            skippingStudents = 0;
+        } else {
+            students.push(firstStudent);
+            skippingStudents++;
+        }
+    }
+    return skippingStudents;
+}
+
+/*
 var countStudents = function(students, sandwiches) {
     let kids = students;
     let length = students.length;
@@ -30,6 +50,6 @@ var countStudents = function(students, sandwiches) {
         }
     }
 };
-
+*/
 console.log(countStudents([1,1,0,0], [0,1,0,1]));
 console.log(countStudents([1,1,1,0,0,1], [1,0,0,0,1,1]));
