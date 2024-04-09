@@ -4,19 +4,29 @@
  * @param {string} s
  * @return {number}
  */
+
+/*
+we take the letters of the string one by one
+we keep track of the number of substrings we have so far, starting with 1
+
+    - if we encountered the letter before
+        we create a new substring
+        we keep this letter in memory within this new substring
+        we increase the number of substring by 1
+    - if we haven't encountered the letter before
+        we keep it in memory in current substring
+        (we keep the number of substring as is)
+*/
 var partitionString = function(s) {
-    let stringArr = s.split('');
     let stack1 = [];
     let substringNum = 1;
 
-    for (let i = 0; i < stringArr.length; i++) {
-        if (!stack1.includes(stringArr[i])) {
-            stack1.push(stringArr[i]);
-        } else {
+    for (let i = 0; i < s.length; i++) {
+        if (stack1.includes(s[i])) {
             stack1 = new Array();
-            stack1.push(stringArr[i]);
-            substringNum += 1;
+            substringNum++;
         }
+        stack1.push(s[i]);
     }
     return substringNum;
 };
