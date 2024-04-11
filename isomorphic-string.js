@@ -3,6 +3,27 @@
  * @param {string} t
  * @return {boolean}
  */
+
+/*
+Given the strings `s` and `t` of same length.
+
+For each letter `l` of the string `s` and its corresponding mapped letter `m` of the string `t` at the same index:
+    - If `l` was encountered before
+        - If `m` is already mapped by another character
+            The string is not isomorphic. Stop processing
+        - else
+            Keep in memory that `l` maps `to `m`
+    - else
+        - If `l` mapped to another the letter than `m` the last time it was encountered
+            The string is not isomorphic. Stop processing
+        - else
+            Keep processing. (This else branch is not really necessary)
+
+    Keep in memory that we have encountered `l`
+
+We are out of the loop, the string is isomorphic.
+Stop processing.
+*/
 var isIsomorphic = function(s, t) {
 
     if (s.length !== t.length) {

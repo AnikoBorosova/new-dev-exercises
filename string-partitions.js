@@ -9,13 +9,15 @@
 we take the letters of the string one by one
 we keep track of the number of substrings we have so far, starting with 1
 
-    - if we encountered the letter before
+    - if we encountered the current letter before
         we create a new substring
-        we keep this letter in memory within this new substring
+        we keep the current letter in memory within this new substring
         we increase the number of substring by 1
     - if we haven't encountered the letter before
         we keep it in memory in current substring
         (we keep the number of substring as is)
+
+After reaching the last letter we return the final number of substrings
 */
 var partitionString = function(s) {
     let stack1 = [];
