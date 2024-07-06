@@ -13,15 +13,19 @@ const sortingFunction = function(s) {
             }
         }
     }
+    console.log('111111 ', map1)
+
     map1 = new Map([...map1.entries()].sort());
+    console.log('222222 ', map1)
 
     map1.forEach((values) => {
         sortedStrArr.push(values)
     });
+    console.log('333333 ', sortedStrArr)
 
     const result = sortedStrArr.join(' ');
-    console.log(result);
+    console.log('4444444 ', result)
 }
 
 sortingFunction(s1);
-sortingFunction(s2);
+// sortingFunction(s2);
